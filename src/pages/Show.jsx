@@ -56,12 +56,12 @@ function Show() {
     store.fetchCoinData(params.id);
   }, []);
 
-  if(!store.coinMarketData) return <></>;
+  if (!store.coinMarketData) return <></>;
 
   return (
     <div>
       <header>
-      <img src={store.coinMarketData.image.large} /> 
+        <img src={store.coinMarketData.image.large} />
         <h2>
           {store.coinMarketData.name} ({store.coinMarketData.symbol})
         </h2>
@@ -83,6 +83,30 @@ function Show() {
         <Tooltip />
         <Area type="monotone" dataKey="Price" stroke="#8884d8" fill="#8884d8" />
       </AreaChart>
+      <div>
+        <h4>Market Cap Rank</h4>
+        <span>{store.coinMarketData.market_cap_rank}</span>
+      </div>
+      <div>
+        <h4>24h High</h4>
+        <span>${store.coinMarketData.market_data.high_24h.usd}</span>
+      </div>
+      <div>
+        <h4>24h Low</h4>
+        <span>${store.coinMarketData.market_data.low_24h.usd}</span>
+      </div>
+      <div>
+        <h4>Circulating Supply</h4>
+        <span>${store.coinMarketData.market_data.circulating_supply}</span>
+      </div>
+      <div>
+        <h4>Current Price</h4>
+        <span>${store.coinMarketData.market_data.current_price.usd}</span>
+      </div>
+      <div>
+        <h4>1 Year Change</h4>
+        <span>${store.coinMarketData.market_data.price_change_percentage_1y.toFixed(2)}</span>
+      </div>
     </div>
   );
 }

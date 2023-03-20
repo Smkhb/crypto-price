@@ -53,10 +53,19 @@ function Show() {
   const params = useParams();
 
   React.useEffect(() => {
-    store.fetchCoinMarketValue(params.id);
+    store.fetchCoinData(params.id);
   }, []);
+
+  if(!store.coinMarketData) return <></>;
+
   return (
     <div>
+      <header>
+      <img src={store.coinMarketData.image.large} /> 
+        <h2>
+          {store.coinMarketData.name} ({store.coinMarketData.symbol})
+        </h2>
+      </header>
       <AreaChart
         width={500}
         height={400}

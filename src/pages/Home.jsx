@@ -11,6 +11,7 @@ function Home() {
 
   return (
     <div>
+    <input type='text' value={store.query} onChange={store.setQuery} />
       {store.coins.map(coin => {
         return (
           <div key={coin.id}>

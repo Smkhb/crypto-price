@@ -2,7 +2,7 @@ import axios from 'axios'
 import { create } from 'zustand'
 
 const homeStore = create((set) => ({
-    coin: [],
+    coins: [],
 
     fetchTrandingCoins: async () => {
         const resTrandingCoins = await axios.get(`https://api.coingecko.com/api/v3/search/trending`);

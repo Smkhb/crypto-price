@@ -2,8 +2,9 @@ import axios from 'axios'
 import { create } from 'zustand'
 
 const showStore = create((set) => ({
-    fetchCoinMarket: () => {
-        console.log('hey')
+    fetchCoinMarket: async id => {
+        const resFetchCoinMarket = await axios.get(`https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=usd&days=7`)
+        console.log(resFetchCoinMarket.data)
     }
 }))
 

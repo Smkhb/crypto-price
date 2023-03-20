@@ -105,7 +105,7 @@ function Show() {
       </div>
       <div>
         <h4>1 Year Change</h4>
-        <span>${store.coinMarketData.market_data.price_change_percentage_1y.toFixed(2)}</span>
+        <span>${store.coinMarketData.market_data.price_change_percentage_1y.toFixed(2)}%</span>
       </div>
     </div>
   );

@@ -1,4 +1,5 @@
 import axios from 'axios'
+import debounce from '../helpers/debounce'
 import { create } from 'zustand'
 
 const homeStore = create((set) => ({
@@ -10,11 +11,11 @@ const homeStore = create((set) => ({
         homeStore.getState().searchCoins()
     },
 
-    searchCoins: async () => {
+    searchCoins: debounce( async () => {
         const {query} = homeStore.getState()
         const resSearchCoin =  await axios.get(`https://api.coingecko.com/api/v3/search?query=${query}`)
         console.log(resSearchCoin)
-    },
+    },500),
 
     fetchTrandingCoins: async () => {
         const resTrandingCoins = await axios.get(`https://api.coingecko.com/api/v3/search/trending`);

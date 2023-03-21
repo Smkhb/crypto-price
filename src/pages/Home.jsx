@@ -26,7 +26,7 @@ function Home() {
       </header>
       <div className='home-cryptos'>
         <div className='width' >
-          <h2>Trending Coins</h2>
+          <h2>{store.searched? 'Search Results': 'Trending Coins'}</h2>
           <div className='home-cryptos-list'>
             {store.coins.map(coin => {
               return (

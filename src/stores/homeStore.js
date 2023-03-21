@@ -6,6 +6,7 @@ const homeStore = create((set) => ({
     trending: [],
     coins: [],
     query: '',
+    searching: false,
 
     setQuery: e => {
         set({query: e.target.value})
@@ -13,6 +14,7 @@ const homeStore = create((set) => ({
     },
 
     searchCoins: debounce( async () => {
+        set({searching:true})
         const {query, trending} = homeStore.getState()
         if(query.length>2){
             const resSearchCoin =  await axios.get(`https://api.coingecko.com/api/v3/search?query=${query}`)
@@ -23,9 +25,9 @@ const homeStore = create((set) => ({
                     id: coin.id
                 }
             })
-            set({ coins })            
+            set({ coins, searching:false })            
         } else {
-            set({ coins: trending })
+            set({ coins: trending, searching:false })
         }
 
     },500),

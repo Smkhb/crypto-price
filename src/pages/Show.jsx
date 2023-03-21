@@ -2,6 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import showStore from "../stores/showStore";
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import Header from "../components/Header";
 
 const data = [
   {
@@ -60,6 +61,7 @@ function Show() {
 
   return (
     <div>
+      <Header back  />
       <header>
         <img src={store.coinMarketData.image.large} />
         <h2>

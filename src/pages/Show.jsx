@@ -55,13 +55,17 @@ function Show() {
 
   React.useEffect(() => {
     store.fetchCoinData(params.id);
+    return ()=> {
+      store.reset()
+    }  
   }, []);
-
-  if (!store.coinMarketData) return <></>;
 
   return (
     <div>
       <Header back />
+      {store.coinMarketData && <>
+
+
       <header className="show-header">
         <img src={store.coinMarketData.image.large} />
         <h2>
@@ -118,6 +122,7 @@ function Show() {
           </div>
         </div>
       </div>
+      </>}
     </div>
   );
 }

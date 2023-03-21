@@ -9,7 +9,7 @@ function Home() {
   const store = homeStore()
 
   React.useEffect(() => {
-    store.fetchTrendingCoins()
+    if(store.fetchTrendingCoins.length===0) store.fetchTrendingCoins()
   }, [])
 
   return (

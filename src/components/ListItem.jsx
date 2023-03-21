@@ -10,7 +10,7 @@ function ListItem({ coin }) {
                 {coin.priceBTC && (
                     <span className='home-crypto-prices'>
                         <span className='home-crypto-btc'>
-                            <img src='/public/bitcoin.webp' />
+                            <img src='/bitcoin.webp' />
                             {coin.priceBTC} BTC
                         </span>
                         <span className='home-crypto-usd'>({coin.priceUsd} USD)</span>
